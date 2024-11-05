@@ -7,9 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="/TopeCarsWeb/css/styles.css"/>
+<link rel="stylesheet" type="text/css" href="/TopeCarsWeb/css/login.css"/>
 <title>TopeCars</title>
 </head>
 <body>
-<img src="/TopeCarsWeb/imgs/topecars.webp" width="100" height="60"/>
 <%@include file="/common/user-menu.jsp"%>

@@ -4,6 +4,8 @@ public class Attributes {
 	
 	public static final String CLIENTE = "cliente";
 	
+	public static final String CLIENTE_AUTENTICADO = "cliente";
+	
 	public static final String RESULTADOS = "resultados";
 
 }
