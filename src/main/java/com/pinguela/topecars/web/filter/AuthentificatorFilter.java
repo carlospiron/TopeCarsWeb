@@ -37,7 +37,7 @@ public class AuthentificatorFilter extends HttpFilter implements Filter {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		
 		if(SessionManager.getAttribute(httpRequest, Attributes.CLIENTE)==null) {
-			RouterUtils.route(httpRequest, (HttpServletResponse) response, true, Views.LOGIN);
+			RouterUtils.route(httpRequest, (HttpServletResponse) response, false, Views.LOGIN);
 		}else {
 			chain.doFilter(request, response);
 		}

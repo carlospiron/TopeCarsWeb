@@ -23,7 +23,7 @@ import com.pinguela.topecars.web.util.Views;
 /**
  * Servlet implementation class ClienteServlet
  */
-@WebServlet("/public/ClienteServlet")
+@WebServlet("/public/PublicClienteServlet")
 public class PublicClienteServlet extends HttpServlet {
 private Logger logger = LogManager.getLogger(PublicClienteServlet.class);
 	
@@ -46,11 +46,12 @@ private Logger logger = LogManager.getLogger(PublicClienteServlet.class);
 			String password = request.getParameter(Parameters.PASSWORD);
 			
 			try {
-				logger.info("login correcto");
+				logger.debug("Autenticando usuario "+email);
 				
 				ClienteDTO cliente = clienteService.autenticar(email, password);
 				
 				if(cliente != null) {
+					logger.info("Usuario "+email+" autenticado con éxito");
 					SessionManager.setAttribute(request, "cliente", cliente);
 					String rememberMeStr = request.getParameter(Parameters.REMEMBER_USER);
 					Boolean rememberMe = rememberMeStr!=null;
@@ -62,13 +63,13 @@ private Logger logger = LogManager.getLogger(PublicClienteServlet.class);
 						CookieManager.removeCookie(response, request.getContextPath(), "cliente");
 					}
 					
-					targetView = Views.LOGIN;
+					targetView = Views.CITA_SEARCH; //deberia llevar al a la parte privada despues de hacer el login
 					forwardOrRedirect = false;
 					
 				}
-			}catch(PinguelaException pe) {
+			} catch(PinguelaException pe) {
 				logger.error(pe.getMessage(), pe);
-			}
+			} 
 		}
 		
 		RouterUtils.route(request, response, forwardOrRedirect, targetView);

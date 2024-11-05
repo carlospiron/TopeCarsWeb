@@ -29,7 +29,7 @@ import com.pinguela.topecars.web.util.Views;
 @WebServlet("/private/CitaServlet")
 public class CitaServlet extends HttpServlet {
 
-	private static DateFormat FECHA = new SimpleDateFormat("yyyy/MM/dd");
+	private static SimpleDateFormat FECHA = new SimpleDateFormat("yyyy/MM/dd");
 	private Logger logger = LogManager.getLogger(CitaServlet.class);
 
 	private CitaService citaService = null;
@@ -59,9 +59,9 @@ public class CitaServlet extends HttpServlet {
 				cita.setMatricula(matricula);
 			}
 
-			String fechaDesdeStr = request.getParameter(Parameters.FECHA_DESDE);
+			String fechaDesdeStr = request.getParameter(Parameters.FECHA_DESDE); //quitar fecha para el cliente desde hasta o arreglar con el id del cliente para que solo me salgan sus citas
 			String fechaHastaStr = request.getParameter(Parameters.FECHA_HASTA);
-			
+
 			logger.info("Fecha desde: " + fechaDesdeStr);
 			logger.info("Fecha hasta: " + fechaHastaStr);
 
@@ -76,10 +76,10 @@ public class CitaServlet extends HttpServlet {
 
 				Results<CitaDTO> resultados = citaService.findByFecha(FECHA.parse(fechaDesdeStr),
 						FECHA.parse(fechaHastaStr), 1, 2);
-				
+
 				logger.info(resultados.getPage());
 				request.setAttribute(Attributes.RESULTADOS, resultados);
-				targetView = Views.CITA_SEARCH;
+				targetView = Views.CITA_SEARCH; 
 
 			} catch (ParseException | DataException | ServiceException e) {
 
@@ -90,6 +90,7 @@ public class CitaServlet extends HttpServlet {
 		logger.info("targetView: " + targetView);
 
 		RouterUtils.route(request, response, fordwarOrRedirect, targetView);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
