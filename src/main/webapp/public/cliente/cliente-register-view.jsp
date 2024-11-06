@@ -21,10 +21,10 @@
         <label>Nombre</label>
         <input type="text" name="<%=Parameters.NOMBRE%>" required/>
         
-        <label>Apellido1</label>
+        <label>Primer Apellido</label>
         <input type="text" name="<%=Parameters.APELLIDO1%>" required/>
         
-        <label>Apellido2</label>
+        <label>Segundo Apellido</label>
         <input type="text" name="<%=Parameters.APELLIDO2%>" required/>
         
         <label>DNI</label>
