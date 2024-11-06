@@ -35,8 +35,8 @@ private Logger logger = LogManager.getLogger(PublicClienteServlet.class);
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action=request.getParameter(Parameters.ACTION);
 		
+		String action=request.getParameter(Parameters.ACTION);
 		String targetView = null;
 		boolean forwardOrRedirect = false;
 		
@@ -66,15 +66,58 @@ private Logger logger = LogManager.getLogger(PublicClienteServlet.class);
 					targetView = Views.CITA_SEARCH; //deberia llevar al a la parte privada despues de hacer el login
 					forwardOrRedirect = false;
 					
+				} else {
+					targetView = Views.REGISTER;
+					forwardOrRedirect = true;
+					logger.info("Usuario no encontradp redirigiendo a la pagina de registro");
 				}
+				
 			} catch(PinguelaException pe) {
 				logger.error(pe.getMessage(), pe);
-			} 
-		}
+			}
+			
+			}else if(Actions.REGISTER.equalsIgnoreCase(action)) {
+				
+				String nombre = request.getParameter(Parameters.NOMBRE);
+				String apellido1 = request.getParameter(Parameters.APELLIDO1);
+				String apellido2 = request.getParameter(Parameters.APELLIDO2);
+				String dni = request.getParameter(Parameters.DNI);
+				String email = request.getParameter(Parameters.EMAIL);
+				String telefono = request.getParameter(Parameters.TELEFONO);
+				String cp = request.getParameter(Parameters.CP);
+				String password = request.getParameter(Parameters.PASSWORD);
+				
+				try {
+					
+					logger.info("Registrando nuevo cliente "+email);
+					
+					ClienteDTO nuevoCliente = new ClienteDTO();
+					nuevoCliente.setNombre(nombre);
+					nuevoCliente.setApellido1(apellido1);
+					nuevoCliente.setApellido2(apellido2);
+					nuevoCliente.setDni(dni);
+					nuevoCliente.setCorreo(email);
+					nuevoCliente.setTelefono(telefono);
+					nuevoCliente.setCp(cp);
+					nuevoCliente.setPassword(password);
+					
+					Long id = clienteService.registrar(nuevoCliente);
+					
+					logger.info("Usuario " + email + " registrado con éxito");
+	                SessionManager.setAttribute(request, "cliente", nuevoCliente);
+	                targetView = Views.HOME;
+	                forwardOrRedirect = true;
+					
+				}catch(PinguelaException pe) {
+					logger.error(pe.getMessage(), pe);	
+				}
+			}
 		
 		RouterUtils.route(request, response, forwardOrRedirect, targetView);
+		}
 		
-	}
+		
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
