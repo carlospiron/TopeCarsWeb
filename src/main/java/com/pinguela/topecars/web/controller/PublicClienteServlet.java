@@ -69,7 +69,7 @@ private Logger logger = LogManager.getLogger(PublicClienteServlet.class);
 				} else {
 					targetView = Views.REGISTER;
 					forwardOrRedirect = true;
-					logger.info("Usuario no encontradp redirigiendo a la pagina de registro");
+					logger.info("Usuario no encontrado redirigiendo a la página de registro");
 				}
 				
 			} catch(PinguelaException pe) {
