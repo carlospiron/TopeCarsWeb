@@ -36,7 +36,7 @@ public class AuthentificatorFilter extends HttpFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		
-		if(SessionManager.getAttribute(httpRequest, Attributes.CLIENTE)==null) {
+		if(SessionManager.getAttribute(httpRequest, Attributes.EMPLEADO)==null) {
 			RouterUtils.route(httpRequest, (HttpServletResponse) response, false, Views.LOGIN);
 		}else {
 			chain.doFilter(request, response);

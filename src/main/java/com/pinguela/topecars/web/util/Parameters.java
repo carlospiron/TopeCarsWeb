@@ -10,6 +10,8 @@ public class Parameters {
 	
 	public static final String ID = "id";
 	
+	public static final String ID_ROL = "idRol";
+	
 	public static final String NOMBRE = "nombre";
 	
 	public static final String APELLIDO1 = "apellido1";

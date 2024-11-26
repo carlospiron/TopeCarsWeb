@@ -3,12 +3,12 @@
 <%@ page import="com.pinguela.topecars.web.util.*"%>
 
 <% 	
-	ClienteDTO cliente = (ClienteDTO) SessionManager.getAttribute(request, Attributes.CLIENTE_AUTENTICADO);
-	if (cliente==null) {
-		%><a href="/TopeCarsWeb/public/cliente/cliente-login-view.jsp">Autenticarse</a><%
+	EmpleadoDTO empleado = (EmpleadoDTO) SessionManager.getAttribute(request, Attributes.EMPLEADO_AUTENTICADO);
+	if (empleado==null) {
+		%><a href="/TopeCarsWeb/public/empleado/empleado-login-view.jsp">Autenticarse</a><%
 	} else {
 		%>
-			<p><%=cliente.getNombre()%></p>
+			<p><%=empleado.getNombre()%></p>
 			<a href="/TopeCarsWeb/ClienteServlet?action=logout">Salir</a>
 			<%@include file="/common/menu.jsp"%>
 		<%		
