@@ -138,7 +138,7 @@ public class PrivateEmpleadoServlet extends HttpServlet {
 					errors.addFieldError(Parameters.EMAIL, ErrorCodes.INVALID_EMAIL);
 				}
 				else {
-				errors.addFieldError(Parameters.EMAIL, ErrorCodes.INVALID_EMAIL);
+				errors.addFieldError(Parameters.EMAIL, ErrorCodes.MANDATORY_FIELD);
 			}	
 			
 
