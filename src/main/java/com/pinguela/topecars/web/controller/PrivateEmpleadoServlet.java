@@ -27,7 +27,7 @@ import com.pinguela.topecars.web.util.SessionManager;
 import com.pinguela.topecars.web.util.Validator;
 import com.pinguela.topecars.web.util.Views;
 
-@WebServlet("/PrivateEmpleadoServlet")
+@WebServlet("/private/PrivateEmpleadoServlet")
 public class PrivateEmpleadoServlet extends HttpServlet {
 	private static Logger logger = LogManager.getLogger(PrivateEmpleadoServlet.class);
 

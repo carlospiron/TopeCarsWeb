@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("private/PrivateEmpleadoServlet")
+@WebServlet("/public/PublicEmpleadoServlet")
 public class PublicEmpleadoServlet extends HttpServlet {
 	private static Logger logger = LogManager.getLogger(PublicEmpleadoServlet.class);
 
@@ -52,12 +52,13 @@ public class PublicEmpleadoServlet extends HttpServlet {
 
 				String email = request.getParameter(Parameters.EMAIL);
 				String password = request.getParameter(Parameters.PASSWORD);
+				
 				// Faltan las validaciones
 
 				if (!errors.hasErrors()) {
 
 					EmpleadoDTO empleado = empleadoService.autenticar(email, password);
-
+					
 					if (empleado != null) {
 						SessionManager.setAttribute(request, Attributes.EMPLEADO, empleado);
 						String rememberMeStr = request.getParameter(Parameters.REMEMBER_USER);
@@ -65,6 +66,7 @@ public class PublicEmpleadoServlet extends HttpServlet {
 						if (rememberMe) {
 							CookieManager.setCookie(response, request.getContextPath(), Attributes.EMPLEADO,
 									empleado.getCorreo(), 30 * 24 * 60 * 60);
+							logger.info("Empleado: {}", empleado.getCorreo());
 						} else {
 							CookieManager.removeCookie(response, request.getContextPath(), Attributes.EMPLEADO);
 						}

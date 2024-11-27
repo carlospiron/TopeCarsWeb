@@ -15,10 +15,10 @@
 		<input type="hidden" name="action" value="login" /> 
 		
 		<label><fmt:message key="correo" bundle="${messages}"/></label>		
-		<input type="email" name="correo" placeholder="Inserta correo" required />
+		<input type="email" name="email" placeholder="Inserta correo" required />
 		 
 		<label><fmt:message key="contraseña" bundle="${messages}"/></label> 
-		<input type="password" name="conraseña" placeholder="Introduce contraseña" required />
+		<input type="password" name="password" placeholder="Introduce contraseña" required />
 		 
 		<input type="checkbox" name="remember-user" checked>Recordar usuario</input>
 

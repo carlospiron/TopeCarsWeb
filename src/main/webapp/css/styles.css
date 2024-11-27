@@ -30,12 +30,13 @@ header .logo {
 .header-right {
     display: flex;
     align-items: center;
+    gap: 20px;
 }
 
 .language-options {
     display: flex;
     gap: 15px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .language-options a {
@@ -48,12 +49,19 @@ header .logo {
     text-decoration: underline;
 }
 
-.settings {
-    background-color: #555;
+.logout-button {
+    background-color: #f44336;
     color: #fff;
     border: none;
-    padding: 10px;
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #d32f2f;
 }
 
 /* Menu navigation bar */
@@ -75,7 +83,7 @@ header .logo {
 }
 
 .menu ul li {
-    margin: 0;
+    position: relative;
 }
 
 .menu ul li a {
@@ -90,6 +98,39 @@ header .logo {
     background-color: #f44336;
     color: #fff;
     border-radius: 5px;
+}
+
+/* Submenús */
+.menu ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    padding: 10px 0;
+    list-style-type: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.menu ul li ul li {
+    margin: 0;
+}
+
+.menu ul li ul li a {
+    padding: 8px 15px;
+    white-space: nowrap;
+    display: block;
+    color: #fff;
+}
+
+.menu ul li ul li a:hover {
+    background-color: #444;
+}
+
+/* Mostrar submenú al pasar el mouse */
+.menu ul li:hover > ul {
+    display: block;
 }
 
 /* Main content layout */
@@ -110,18 +151,6 @@ header .logo {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* User profile (si se necesita) */
-.user-profile {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.user-profile img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
 }
 
 /* Estilos para la página de login */
@@ -145,81 +174,6 @@ header .logo {
     max-width: 500px;
 }
 
-.login-box img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.login-box h2 {
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    color: #333;
-}
-
-.login-box form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
-.login-box form input[type="email"],
-.login-box form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-    box-sizing: border-box;
-}
-
-.login-box form button {
-    padding: 10px 20px;
-    background-color: #305F8A;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-box form button:hover {
-    background-color: #f44336;
-}
-
-.login-box form .checkbox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.login-box form .checkbox label {
-    font-size: 0.9em;
-    color: #555;
-}
-
-/* Botones adicionales (cancelar, etc.) */
-.login-box form .button-group {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.login-box form .button-group button {
-    padding: 10px 15px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-box form .button-group button:hover {
-    background-color: #ddd;
-}
-
 /* Ajustes responsivos */
 @media (max-width: 768px) {
     .login-box {
@@ -228,5 +182,14 @@ header .logo {
 
     .login-box form button {
         width: 100%;
+    }
+
+    .header-right {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .language-options {
+        margin-right: 0;
     }
 }

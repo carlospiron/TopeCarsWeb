@@ -6,7 +6,7 @@ public class Parameters {
 
 	public static final String EMAIL = "email";
 	
-	public static final String PASSWORD = "login";
+	public static final String PASSWORD = "password";
 	
 	public static final String ID = "id";
 	

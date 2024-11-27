@@ -11,12 +11,11 @@
 	</c:when>
 	<c:otherwise>
 		<a
-			href="/TopeCarsWeb/private/PrivateEmpleadoServlet?action=viewProfile&id=${empleado.id}">
-			${usuario.nombre} </a>
+			href="/TopeCarsWeb/private/PrivateEmpleadoServlet?action=viewProfile&id=${sessionScope.empleado.idEmpleado}">
+			${sessionScope.empleado.nombre} </a>
 		<br>
 		<br>
 		<a href="/TopeCarsWeb/private/PrivateEmpleadoServlet?action=logout">Salir</a>
-		<jsp:include page="/common/menu.jsp" />
 	</c:otherwise>
 </c:choose>
 

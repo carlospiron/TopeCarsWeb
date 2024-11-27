@@ -17,18 +17,67 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css'/>"/>
 <title>TopeCars</title>
 </head>
+<header>
+    <div class="logo">TopeCars</div>
+    <div class="header-right">
+        <div class="language-options">
+            <a href="#">Inglés</a>
+            <a href="#">Español</a>
+            <a href="#">Gallego</a>
+        </div>       
+    </div>
+</header>
+
+<nav class="menu">
+    <ul>
+        <li><a href="#"><fmt:message key="empleados" bundle="${messages}"/></a>
+            <ul>
+                <li><a href="<%=request.getContextPath()%><%=Views.EMPLEADO_SEARCH%>">
+                			<fmt:message key="buscar_empleados" bundle="${messages}" /></a></li>
+                			
+                <li><a href="<%=request.getContextPath()%><%=Views.EMPLEADO_INSERT%>">
+                			<fmt:message key="insertar_empleado" bundle="${messages}" /></a></li>
+            </ul>
+        </li>
+        <li><a href="#"><fmt:message key="clientes" bundle="${messages}"/></a>
+            <ul>
+                <li><a href="<%=request.getContextPath()%><%=Views.CLIENTE_SEARCH%>">
+                			<fmt:message key="buscar_clientes" bundle="${messages}"/></a></li>
+                			
+                <li><a href="<%=request.getContextPath()%><%=Views.CLIENTE_INSERT%>">
+                			<fmt:message key="ingresar_clente" bundle="${messages}"/></a></li>
+                			
+            </ul>
+        </li>
+        <li><a href="#"><fmt:message key="citas" bundle="${messages}"/></a>
+            <ul>
+                <li><a href="<%=request.getContextPath()%><%=Views.CITA_INSERT%>">
+                		<fmt:message key="solicitar_cita" bundle="${messages}"/></a></li>
+                		
+                <li><a href="<%=request.getContextPath()%><%=Views.CITA_SEARCH%>">
+                		<fmt:message key="buscar_citas" bundle="${messages}"/></a></li>
+                		
+                <li><a href="<%=request.getContextPath()%><%=Views.CITA_DELETE%>">
+                		<fmt:message key="anular_citas" bundle="${messages}"/></a></li>
+            </ul>
+        </li>
+        
+        <li><a href="#"><fmt:message key="reparaciones" bundle="${messages}"/></a>
+            <ul>
+                <li><a href="<%=request.getContextPath()%><%=Views.CITA_INSERT%>">
+                		<fmt:message key="solicitar_cita" bundle="${messages}"/></a></li>
+                		
+                <li><a href="<%=request.getContextPath()%><%=Views.CITA_SEARCH%>">
+                		<fmt:message key="buscar_citas" bundle="${messages}"/></a></li>
+                		
+                <li><a href="<%=request.getContextPath()%><%=Views.CITA_DELETE%>">
+                		<fmt:message key="anular_citas" bundle="${messages}"/></a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
 <body>
 
-<header>
-		<div class="logo"><img src="<%=request.getContextPath()%>/imgs/topecars.webp" width="100" height="60" /></div>
-		<div class="header-right">
-			<div class="language-options">
-				<a
-					href="<%=request.getContextPath()%>/PublicEmpleadoServlet?action=change-locale&locale=en">Ingles</a>
-				<a
-					href="<%=request.getContextPath()%>/PublicEmpleadoServlet?action=change-locale&locale=es">Español</a>
-				<a
-					href="<%=request.getContextPath()%>/PublicEmpleadoServlet?action=change-locale&locale=pt">Gallego</a>
-			</div>
-		</div>
-	</header>
+
+
+
