@@ -2,9 +2,11 @@
 	pageEncoding="UTF-8"%>
 
 <%@include file="/common/header.jsp"%>
+<button class="settings"><%@include file="/common/user-menu.jsp"%></button><br>
 
-<div class="container">
 
-	<h1>Bienvenido a TopeCars</h1>
+Bienvenido a TopeCars
 
-	<%@include file="/common/footer.jsp"%>
+<h1><fmt:message key="bienvenido" bundle="${messages}"/></h1>
+
+<%@include file="/common/footer.jsp" %>

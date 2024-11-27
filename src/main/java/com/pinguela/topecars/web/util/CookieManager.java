@@ -31,6 +31,6 @@ public class CookieManager {
 	}
 
 	public static void removeCookie(HttpServletResponse response, String path, String name) {
-		setCookie(response, name, path, null, 0);
+		setCookie(response, path, name, null, 0);
 	}
 }

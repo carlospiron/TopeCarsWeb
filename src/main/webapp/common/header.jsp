@@ -14,8 +14,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="/TopeCarsWeb/css/styles.css"/>
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css'/>"/>
 <title>TopeCars</title>
 </head>
 <body>
-<%@include file="/common/user-menu.jsp"%>
+
+<header>
+		<div class="logo"><img src="<%=request.getContextPath()%>/imgs/topecars.webp" width="100" height="60" /></div>
+		<div class="header-right">
+			<div class="language-options">
+				<a
+					href="<%=request.getContextPath()%>/PublicEmpleadoServlet?action=change-locale&locale=en">Ingles</a>
+				<a
+					href="<%=request.getContextPath()%>/PublicEmpleadoServlet?action=change-locale&locale=es">Español</a>
+				<a
+					href="<%=request.getContextPath()%>/PublicEmpleadoServlet?action=change-locale&locale=pt">Gallego</a>
+			</div>
+		</div>
+	</header>

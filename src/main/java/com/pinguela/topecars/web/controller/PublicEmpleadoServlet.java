@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/public/UsuarioServlet")
+@WebServlet("private/PrivateEmpleadoServlet")
 public class PublicEmpleadoServlet extends HttpServlet {
 	private static Logger logger = LogManager.getLogger(PublicEmpleadoServlet.class);
 
@@ -79,7 +79,7 @@ public class PublicEmpleadoServlet extends HttpServlet {
 					}
 				} else {
 					forwardOrRedirect = false;
-					targetView = Views.HOME;
+					targetView = Views.LOGIN;
 				}
 			} catch (PinguelaException e) {
 				logger.error(e.getMessage(), e);

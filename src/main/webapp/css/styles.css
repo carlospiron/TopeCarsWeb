@@ -1,142 +1,232 @@
 @charset "UTF-8";
 
-/* General Styles */
+/* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0; /* Light gray background for contrast */
-    color: #333333; /* Dark text for better readability */
     margin: 0;
-    padding: 0;
-}
-
-/* Container */
-.container {
-    width: 80%;
-    margin: 30px auto;
-    padding: 20px;
-    background: #ffffff; /* White background for better visibility */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
 /* Header */
-h2, h3 {
-    color: #6a11cb; /* Purple for headings */
-    margin-bottom: 15px;
-    font-size: 2em;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #305F8A;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Form Styles */
-form {
-    margin-bottom: 30px;
-}
-
-/* Labels */
-label {
-    display: block;
-    margin-bottom: 10px;
+header .logo {
+    font-size: 1.8em;
     font-weight: bold;
-    color: #333333; /* Dark color for labels */
 }
 
-/* Input Fields */
-input[type="text"],
-input[type="number"] {
-    width: calc(100% - 24px);
-    padding: 12px;
-    border: 1px solid #cccccc; /* Light border for input */
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-size: 1.1em;
-    background-color: #ffffff; /* White background for input */
-    color: #333333; /* Dark text color */
+.header-right {
+    display: flex;
+    align-items: center;
 }
 
-/* Submit Button */
-input[type="submit"] {
-    background: #FFC107; /* Button background color */
-    color: #0d0d0d; /* Dark text for better contrast */
-    padding: 12px 24px;
+.language-options {
+    display: flex;
+    gap: 15px;
+    margin-right: 20px;
+}
+
+.language-options a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.language-options a:hover {
+    text-decoration: underline;
+}
+
+.settings {
+    background-color: #555;
+    color: #fff;
     border: none;
-    border-radius: 6px;
+    padding: 10px;
     cursor: pointer;
-    font-size: 1.2em;
-    transition: background 0.3s ease; /* Smooth transition */
 }
 
-input[type="submit"]:hover {
-    background: #e0a800; /* Darker shade on hover */
+/* Menu navigation bar */
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: #222;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Results Styles */
-.results-container {
-    margin-top: 40px;
-}
-
-ul {
+.menu ul {
+    display: flex;
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    gap: 20px;
 }
 
-li {
+.menu ul li {
+    margin: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background-color: #f44336;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Main content layout */
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    background-image: url('race-track-bg.jpg'); /* Sugerencia de fondo temático */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+}
+
+.container .dashboard {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* User profile (si se necesita) */
+.user-profile {
+    text-align: center;
     margin-bottom: 20px;
-    font-size: 1.3em;
 }
 
-/* Navigation Menu */
-.horizontal-menu {
-    background-color: #6a11cb; /* Menu background color */
-    color: white; /* Menu text color */
-    padding: 10px 0; /* Vertical padding */
+.user-profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }
 
-.horizontal-menu ul {
-    list-style: none; /* Remove bullets */
-    display: flex; /* Horizontal layout */
-    justify-content: space-around; /* Space out items */
+/* Estilos para la página de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.horizontal-menu li {
-    position: relative; /* For submenu positioning */
+.login-box {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
 }
 
-.horizontal-menu a {
-    color: white; /* Link text color */
-    text-decoration: none; /* Remove underline */
-    padding: 10px 15px; /* Internal spacing */
-    display: block; /* Block display for larger click area */
-    transition: background 0.3s ease; /* Smooth transition for hover */
+.login-box img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
 }
 
-.horizontal-menu a:hover {
-    background-color: #2575fc; /* Background color on hover */
+.login-box h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #333;
 }
 
-/* Submenu Styles */
-.submenu {
-    display: none; /* Hidden by default */
-    position: absolute; /* Positioning for submenu */
-    background-color: #6a11cb; /* Submenu background color */
-    top: 100%; /* Below parent item */
-    left: 0;
-    z-index: 1; /* Ensure it is on top */
-    min-width: 200px; /* Ensure the submenu has proper width */
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
 }
 
-.horizontal-menu li:hover .submenu {
-    display: block; /* Show submenu on hover */
+.login-box form input[type="email"],
+.login-box form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
 }
 
-.submenu li {
-    text-align: left; /* Left align submenu text */
+.login-box form button {
+    padding: 10px 20px;
+    background-color: #305F8A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.submenu a {
-    padding: 10px 20px; /* Internal spacing for submenu */
-    white-space: nowrap; /* Prevent text wrapping */
+.login-box form button:hover {
+    background-color: #f44336;
 }
 
-.submenu a:hover {
-    background-color: #2575fc; /* Change background color on hover */
+.login-box form .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+.login-box form .checkbox label {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Botones adicionales (cancelar, etc.) */
+.login-box form .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.login-box form .button-group button {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-box form .button-group button:hover {
+    background-color: #ddd;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 15px;
+    }
+
+    .login-box form button {
+        width: 100%;
+    }
+}
