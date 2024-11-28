@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
 <%@include file="/common/header.jsp"%>
 	
 	<div class="login-container">
@@ -18,7 +17,7 @@
 		<input type="email" name="email" placeholder="Inserta correo" required />
 		 
 		<label><fmt:message key="contrasena" bundle="${messages}"/></label> 
-		<input type="password" name="password" placeholder="Introduce contraseÃ±a" required />
+		<input type="password" name="password" placeholder="Introduce contraseña" required />
 		 
 		<input type="checkbox" name="remember-user" checked>Recordar usuario</input>
 

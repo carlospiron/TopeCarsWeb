@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html"  pageEncoding="UTF-8"%>
 <%@ page import="com.pinguela.topecars.model.*"%>
 <%@ page import="com.pinguela.topecars.web.util.*"%>
 <%@ page import="com.pinguela.topecars.web.controller.*"%>
@@ -26,6 +25,7 @@
             <a href="#">Gallego</a>
         </div>       
     </div>
+    
     <button class="settings"><%@include file="/common/user-menu.jsp"%></button>
 </header>
 
