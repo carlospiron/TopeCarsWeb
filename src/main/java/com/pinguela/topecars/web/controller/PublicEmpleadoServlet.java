@@ -6,8 +6,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.pinguela.topecars.PinguelaException;
+import com.pinguela.topecars.dao.DataException;
 import com.pinguela.topecars.model.EmpleadoDTO;
 import com.pinguela.topecars.service.EmpleadoService;
+import com.pinguela.topecars.service.ServiceException;
 import com.pinguela.topecars.service.impl.EmpleadoServiceImpl;
 import com.pinguela.topecars.web.util.Actions;
 import com.pinguela.topecars.web.util.Attributes;
@@ -83,7 +85,7 @@ public class PublicEmpleadoServlet extends HttpServlet {
 					forwardOrRedirect = false;
 					targetView = Views.LOGIN;
 				}
-			} catch (PinguelaException e) {
+			} catch (DataException | ServiceException e) {
 				logger.error(e.getMessage(), e);
 
 			}

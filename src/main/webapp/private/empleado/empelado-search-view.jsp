@@ -12,14 +12,18 @@
 			
 	<input type="hidden" name="action" value="search"/>
 	
-	<label><fmt:message key="id2p" bundle="${messages}"/></label>
+	<label><fmt:message key="identificacion" bundle="${messages}"/></label>
 	<input type="number" name="id" /> 
 	<label><fmt:message key="nombre" bundle="${messages}"/></label> 
 	<input type="text" name="nombre" />
-	<label><fmt:message key="rol" bundle="${messages}"/></label>
-	<input type="text" name="rolId" />
-	<label><fmt:message key="email" bundle="${messages}"/></label> 
-	<input type="text" name="email" />
+	<label><fmt:message key="primer_apellido" bundle="${messages}"/></label> 
+	<input type="text" name="apellido1" />
+	<label><fmt:message key="segundo_apellido" bundle="${messages}"/></label> 
+	<input type="text" name="apellido2" />
+	<label><fmt:message key="id_rol" bundle="${messages}"/></label>
+	<input type="text" name="idRol" />
+	<label><fmt:message key="correo" bundle="${messages}"/></label> 
+	<input type="text" name="correo" />
 	<input type="submit" value="<fmt:message key="search" bundle="${messages}"/>"/>
 </form>
 
@@ -28,7 +32,7 @@
 		<c:when test="${not empty resultados}">
 			<%-- <c:when test="{resultados is not null}"> --%>
 			<h3><fmt:message
-			key="resultadosbusqueda" bundle="${messages}" /></h3>
+			key="resultados_busqueda" bundle="${messages}" /></h3>
 			<ul> 
 	 	
 				<c:forEach var="empleado" items="${resultados}">
@@ -42,7 +46,7 @@
 		</c:when>
 		<c:otherwise>
 			<p><fmt:message
-			key="resultadosnoencontrados" bundle="${messages}" /></p>
+			key="resultados_no_encontrados" bundle="${messages}" /></p>
 		</c:otherwise>		
 	</c:choose>
 </div>

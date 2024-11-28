@@ -4,6 +4,8 @@
 <%@ page import="com.pinguela.topecars.model.*"%>
 <%@ page import="com.pinguela.topecars.web.util.*"%>
 
+
+
 <c:choose>
 	<c:when test="${empleado == null}">
 		<a href="/TopeCarsWeb/public/empleado/empleado-login-view.jsp"><fmt:message

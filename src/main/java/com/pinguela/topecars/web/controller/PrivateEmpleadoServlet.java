@@ -16,6 +16,7 @@ import com.pinguela.topecars.model.EmpleadoCriteria;
 import com.pinguela.topecars.model.EmpleadoDTO;
 import com.pinguela.topecars.model.Results;
 import com.pinguela.topecars.service.EmpleadoService;
+import com.pinguela.topecars.service.ServiceException;
 import com.pinguela.topecars.service.impl.EmpleadoServiceImpl;
 import com.pinguela.topecars.web.util.Actions;
 import com.pinguela.topecars.web.util.Attributes;
@@ -121,96 +122,6 @@ public class PrivateEmpleadoServlet extends HttpServlet {
 			targetView = Views.HOME;
 			forwardOrRedirect = false;
 
-		} else if (Actions.REGISTER.equalsIgnoreCase(action)) {
-			EmpleadoDTO empleado = new EmpleadoDTO();
-
-			String nombre = request.getParameter(Parameters.NOMBRE);
-			String apellido1 = request.getParameter(Parameters.APELLIDO1);
-			String apellido2 = request.getParameter(Parameters.APELLIDO2);
-			
-			String email = request.getParameter(Parameters.EMAIL);
-			
-			if(!Strings.isBlank(email)) {
-				email = email.trim();
-			}
-			
-				if(!Validator.isValidEmail(email)) {
-					errors.addFieldError(Parameters.EMAIL, ErrorCodes.INVALID_EMAIL);
-				}
-				else {
-				errors.addFieldError(Parameters.EMAIL, ErrorCodes.MANDATORY_FIELD);
-			}	
-			
-
-			// Validacion de la password
-			String password = request.getParameter(Parameters.PASSWORD);
-			if (!Strings.isBlank(password)) {
-				password = password.trim();
-				
-				if (!Validator.isValidPasswordLength(password)) {
-					errors.addFieldError(Parameters.PASSWORD, ErrorCodes.INVALID_PASSWORD_LENGTH);
-				}
-				else if (!Validator.containsUpperCase(password)) {
-					errors.addFieldError(Parameters.PASSWORD, ErrorCodes.PASSWORD_NO_UPPERCASE);
-				}
-				else if (!Validator.containsLowerCase(password)) {
-					errors.addFieldError(Parameters.PASSWORD, ErrorCodes.PASSWORD_NO_LOWERCASE);
-				}
-				else if (!Validator.containsDigit(password)) {
-					errors.addFieldError(Parameters.PASSWORD, ErrorCodes.PASSWORD_NO_NUMBER);
-				}
-				else if (!Validator.containsSpecialCharacter(password)) {
-					errors.addFieldError(Parameters.PASSWORD, ErrorCodes.PASSWORD_NO_SPECIAL_CHARACTER);
-				}
-				
-			} else {
-				errors.addFieldError(Parameters.PASSWORD, ErrorCodes.MANDATORY_FIELD);
-			}
-
-			String rolStr = request.getParameter(Parameters.ID_ROL);
-			Integer idRol = Integer.valueOf(rolStr);
-			// Validacion de rol
-			
-			if (!Validator.isValidRole(rolStr)) {
-				errors.addFieldError(Parameters.ID_ROL, ErrorCodes.UNKNOWN_ROLE);
-			}
-
-			if (!errors.hasErrors()) {
-
-				empleado.setNombre(nombre);
-				empleado.setApellido1(apellido1);
-				empleado.setApellido2(apellido2);
-				empleado.setCorreo(email);
-				empleado.setPassword(password);
-				empleado.setIdRol(idRol);
-
-				try {
-					Long id = empleadoService.registrar(empleado);
-				} catch (PinguelaException pe) {
-					logger.error(pe.getMessage() + ": nombre = " + nombre + ", email=" + email, pe);
-				}
-				targetView = Views.EMPLEADO_INSERT; 
-				forwardOrRedirect = false;
-
-			} else {
-				forwardOrRedirect = true;
-				targetView = Views.EMPLEADO_INSERT;
-			}
-
-		} else if (Actions.DETAIL.equalsIgnoreCase(action)) {
-			try {
-				String idStr = request.getParameter(Parameters.ID);
-				Long id = Long.valueOf(idStr);
-
-				EmpleadoDTO empleado = empleadoService.findById(id);
-
-				request.setAttribute(Attributes.EMPLEADO, empleado);
-
-				targetView = Views.EMPLEADO_DETAIL;
-				forwardOrRedirect = true;
-			} catch (PinguelaException pe) {
-				logger.error(pe.getMessage(), pe);
-			}
 		} else if (Actions.DELETE.equalsIgnoreCase(action)) {
 
 			try {

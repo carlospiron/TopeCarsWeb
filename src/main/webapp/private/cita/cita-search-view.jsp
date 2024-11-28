@@ -17,7 +17,7 @@
             Calendar fechaHasta = new GregorianCalendar(); // Fecha de fin: hoy
             String fechaFin = FECHA.format(fechaHasta.getTime());
         %>
-		<form action="/TopeCarsWeb/private/CitaServlet" method="get">
+		<form action="<%=request.getContextPath()%>/private/CitaServlet" method="get">
 			<input type="hidden" name="<%= Parameters.ACTION %>"
 				value="<%= Actions.SEARCH %>"> <label>Introduzca su Matrícula:</label> <input
 				type="text" name="<%= Parameters.MATRICULA %>" class="input-field"><br>
