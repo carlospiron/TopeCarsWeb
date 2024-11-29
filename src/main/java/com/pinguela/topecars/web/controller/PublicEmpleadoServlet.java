@@ -16,12 +16,16 @@ import com.pinguela.topecars.web.util.Attributes;
 import com.pinguela.topecars.web.util.CookieManager;
 import com.pinguela.topecars.web.util.ErrorCodes;
 import com.pinguela.topecars.web.util.Errors;
+import com.pinguela.topecars.web.util.LocaleUtils;
 import com.pinguela.topecars.web.util.Parameters;
 import com.pinguela.topecars.web.util.RouterUtils;
 import com.pinguela.topecars.web.util.SessionManager;
+import com.pinguela.topecars.web.util.Value;
 import com.pinguela.topecars.web.util.Views;
 
 import java.io.IOException;
+import java.util.Locale;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -89,9 +93,21 @@ public class PublicEmpleadoServlet extends HttpServlet {
 				logger.error(e.getMessage(), e);
 
 			}
+			
+		}else if (Actions.CHANGE_LOCALE.equalsIgnoreCase(action)) {
+				Locale localeSeleted = LocaleUtils.validLocale(LocaleUtils.findSupported(request.getParameter(Parameters.LOCALE))) ;
+				logger.info("localeSeleted: " + localeSeleted);
+				
+				SessionManager.setAttribute(request, Attributes.LOCALE, localeSeleted);
+				CookieManager.setCookie(response, request.getContextPath(), Value.VALUE_COOKIE_LOCALE, localeSeleted.toString(), 30*24*60*60);
+				//targetView = String.valueOf(Base64.getDecoder().decode(request.getParameter(ParameterName.CALLBACK_URL).getBytes()));
+				//TODO decode
+				targetView = request.getParameter(Parameters.CALLBACK_URL);			
+				forwardOrRedirect = false;
+			}
+			
 			RouterUtils.route(request, response, forwardOrRedirect, targetView);
 
-		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
