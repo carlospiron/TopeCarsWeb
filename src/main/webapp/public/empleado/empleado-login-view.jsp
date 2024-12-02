@@ -15,7 +15,7 @@
 		<input type="hidden" name="${Parameters.ACTION}" value="${Actions.LOGIN}" /> 
 		
 		<label><fmt:message key="correo" bundle="${messages}"/></label>		
-		<input type="email" name="${Parameters.EMAIL}" placeholder="Inserta correo" class="input-field" value="${cookie.USER.value}" required />
+		<input type="email" name="${Parameters.EMAIL}" placeholder="Inserta correo" required />
 		 
 		<label><fmt:message key="contrasena" bundle="${messages}"/></label> 
 		<input type="password" name="password" placeholder="Introduce contraseña" required />

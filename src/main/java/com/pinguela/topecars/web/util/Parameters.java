@@ -32,7 +32,7 @@ public class Parameters {
 	
 	public static final String REMEMBER_USER = "remember-user";
 	
-	public static final String LOCALE = "locale";
+	public static final String PAGE = "page";
 	
 	public static final String CALLBACK_URL = "callbackURL";
 

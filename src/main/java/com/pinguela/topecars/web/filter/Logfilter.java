@@ -36,11 +36,7 @@ public class Logfilter extends HttpFilter implements Filter {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		StringBuffer url = new StringBuffer();
 		url.append(httpRequest.getScheme());
-//		url.append("://");
-//		url.append(httpRequest.getLocalName());
-//		url.append(":");
-//		url.append(httpRequest.getLocalPor/t());
-//		url.append(httpRequest.getContextPath());
+
 		url.append(httpRequest.getRequestURI());
 		
 		logger.info("--> Request" + url + " from " + httpRequest.getRemoteHost());
