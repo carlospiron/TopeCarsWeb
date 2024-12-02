@@ -18,7 +18,7 @@ import com.pinguela.topecars.web.util.SessionManager;
 
 public class LanguageFilter extends HttpFilter implements Filter {
 
-	private static String[] SUPPORTED_LOCALES = ConfigurationParametersManager.getParameterValue("locale.support").split(",");
+	private static String[] SUPPORTED_LOCALES = ConfigurationParametersManager.getParameterValue("locale.supported").split(",");
 	private static String DEFAULT_LOCALE = ConfigurationParametersManager.getParameterValue("locale.default");
 			
 

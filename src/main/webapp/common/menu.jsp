@@ -20,7 +20,7 @@
                 			<fmt:message key="buscar_clientes" bundle="${messages}"/></a></li>
                 			
                 <li><a href="<%=request.getContextPath()%><%=Views.CLIENTE_INSERT%>">
-                			<fmt:message key="ingresar_cliente" bundle="${messages}"/></a></li>
+                			<fmt:message key="nuevo_cliente" bundle="${messages}"/></a></li>
                 			
                 			
             </ul>
@@ -33,6 +33,13 @@
                 <li><a href="<%=request.getContextPath()%><%=Views.CITA_SEARCH%>">
                 		<fmt:message key="buscar_citas" bundle="${messages}"/></a></li>
                 		
+            </ul>
+        </li>
+        <li><a href="#"><fmt:message key="reparaciones" bundle="${messages}"/></a>
+            <ul>
+                <li><a href="<%=request.getContextPath()%><%=Views.REPARACION_SEARCH%>">
+                			<fmt:message key="buscar_reparaciones" bundle="${messages}"/></a></li>
+                			
             </ul>
         </li>
        

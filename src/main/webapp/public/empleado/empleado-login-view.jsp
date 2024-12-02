@@ -4,7 +4,6 @@
 
 	<div class="login-container">
 
-	
 	<c:forEach var="error" items="${errors.globalErrors}">
 			<li><fmt:message key="${error}" bundle="${messages}" /></li>
 	</c:forEach>
@@ -18,11 +17,12 @@
 		<input type="email" name="${Parameters.EMAIL}" placeholder="Inserta correo" required />
 		 
 		<label><fmt:message key="contrasena" bundle="${messages}"/></label> 
-		<input type="password" name="password" placeholder="Introduce contraseña" required />
+		<input type="password" name="${Parameters.PASSWORD}" placeholder="Introduce contraseña" required />
 		 
-		<input type="checkbox" name="${Parameters.REMEMBER_USER}" checked>Recordar usuario</input>
+		<input type="checkbox" name="${Parameters.REMEMBER_USER}"  checked>Recordar usuario</input>
 
-		<input type="submit" value="Acceso"> <input type="reset" value="Limpiar">
+		<input type="submit"  value="<fmt:message key="acceso" bundle="${messages}" />"> 
+		<input type="reset" value="<fmt:message key="limpiar" bundle="${messages}" />">
 	</form>
 
 </div>

@@ -18,7 +18,6 @@ public class URLUtils {
         
         for (String parameterName : parameterNames) {
             if (!Parameters.CALLBACK_URL.equalsIgnoreCase(parameterName)) {
-                
             	urlBuilder.append(parameterName).append("=").append(request.getParameter(parameterName)).append("&");
             }
         }

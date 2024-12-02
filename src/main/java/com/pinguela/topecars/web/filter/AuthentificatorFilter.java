@@ -20,7 +20,7 @@ import com.pinguela.topecars.web.util.Views;
 /**
  * Servlet Filter implementation class AuthenticatorFilter
  */
-@WebFilter("/private/*")
+//@WebFilter("/private/*")
 public class AuthentificatorFilter extends HttpFilter implements Filter {
        
 

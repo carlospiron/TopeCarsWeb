@@ -20,4 +20,8 @@ public class Views {
 	public static final String CITA_DETAIL = "/private/cita/cita-detail-view.jsp";
 	public static final String CITA_INSERT = "/private/cita/cita-insert-view.jsp";
 	
+	//reparacion
+	public static final String 	REPARACION_SEARCH = "/private/reparacion/reparacion-search-view.jsp";
+	public static final String 	REPARACION_DETAIL = "/private/reparacion/reparacion-detail-view.jsp";
+	
 }

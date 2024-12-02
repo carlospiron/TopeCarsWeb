@@ -35,5 +35,7 @@ public class Parameters {
 	public static final String PAGE = "page";
 	
 	public static final String CALLBACK_URL = "callbackURL";
+	
+	public static final String LOCALE = "locale";
 
 }

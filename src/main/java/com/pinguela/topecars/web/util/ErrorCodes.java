@@ -12,13 +12,10 @@ public class ErrorCodes {
 		public static final String INVALID_EMAIL = "INVALID_EMAIL"; 
 		public static final String INVALID_DNI = "INVALID_DNI";
 		public static final String INVALID_CP = "INVALID_DNI"; 
+		public static final String INVALID_NAME = "INVALID_NAME";
+		public static final String LAST_NAME = "LAST_NAME";
 		
-		public static final String INVALID_PHONE = "INVALID PHONE";
-		public static final String INVALID_PASSWORD_LENGTH = "INVALID_PASSWORD_LENGTH";
-		public static final String PASSWORD_NO_UPPERCASE = "PASSWORD_NO_UPPERCASE";
-		public static final String PASSWORD_NO_LOWERCASE = "PASSWORD_NO_LOWERCASE";
-		public static final String PASSWORD_NO_NUMBER = "PASSWORD_NO_NUMBER";
-		public static final String PASSWORD_NO_SPECIAL_CHARACTER = "PASSWORD_NO_SPECIAL_CHARACTER";
 		public static final String UNKNOWN_ROLE = "UNKNOWN_ROLE";
+		public static final String INCORRECT_FIELD = "INCORRECT_FIELD";
 
 }

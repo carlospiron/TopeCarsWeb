@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * Servlet Filter implementation class AuthenticatorFilter
  */
-@WebFilter("/*")
+//@WebFilter("/*")
 public class Logfilter extends HttpFilter implements Filter {
 	private static Logger logger = LogManager.getLogger(Logfilter.class);
 

@@ -17,7 +17,8 @@
 			${sessionScope.empleado.nombre} </a>
 		<br>
 		<br>
-		<a href="/TopeCarsWeb/private/PrivateEmpleadoServlet?action=logout">Salir</a>
+		<a href="/TopeCarsWeb/private/PrivateEmpleadoServlet?action=logout"><fmt:message 
+				key="salir" bundle="${messages}" /></a>
 	</c:otherwise>
 </c:choose>
 

@@ -1,8 +1,6 @@
 package com.pinguela.topecars.web.controller;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -141,48 +139,69 @@ public class ClienteServlet extends HttpServlet {
 				String correo = request.getParameter(Parameters.EMAIL);
 				String telefono = request.getParameter(Parameters.TELEFONO);
 				String cp = request.getParameter(Parameters.CP);
-				
-				if(!errors.hasErrors()) {
-				
-				    if (!Validator.esDniValido(dni)) {
-				        throw new PinguelaException("DNI inválido");
-				    }
-				    if (!Validator.esCorreoValido(correo)) {
-				        throw new PinguelaException("Correo electrónico inválido");
-				    }
-				    if (!Validator.esCpValido(cp)) {
-				        throw new PinguelaException("Código postal inválido");
-				    }
-				    if (!Validator.esTelefonoValido(telefono)) {
-				        throw new PinguelaException("Número de teléfono inválido");
-				    }
 
-				} else {
-					logger.warn("Registration failed failed: user = {} ");
-					errors.addGlobal(ErrorCodes.INVALID_CP);
+				
+				if (!Validator.esEntradaValida(nombre)) {
+					errors.addFieldError(Parameters.NOMBRE, ErrorCodes.INVALID_NAME);
+					forwardOrRedirect = true;
+					targetView = Views.CLIENTE_INSERT;
+				}
+				
+				if (!Validator.esEntradaValida(apellido1)) {
+					errors.addFieldError(Parameters.APELLIDO1, ErrorCodes.LAST_NAME);
+					forwardOrRedirect = true;
+					targetView = Views.CLIENTE_INSERT;
+				}
+				
+				if (!Validator.esEntradaValida(apellido2)) {
+					errors.addFieldError(Parameters.APELLIDO2, ErrorCodes.LAST_NAME);
+					forwardOrRedirect = true;
+					targetView = Views.CLIENTE_INSERT;
+				}
+
+				if (!Validator.esDniValido(dni)) {
+					errors.addFieldError(Parameters.DNI, ErrorCodes.INVALID_DNI);
+					forwardOrRedirect = true;
+					targetView = Views.CLIENTE_INSERT; 
+				}
+				if (!Validator.esCorreoValido(correo)) {
+					errors.addFieldError(Parameters.EMAIL, ErrorCodes.INVALID_EMAIL);
+					forwardOrRedirect = true;
+					targetView = Views.CLIENTE_INSERT; 
+				}
+				if (!Validator.esCpValido(cp)) {
+					errors.addFieldError(Parameters.CP, ErrorCodes.INVALID_CP);
+					forwardOrRedirect = true;
+					targetView = Views.CLIENTE_INSERT; 
+				}
+				
+
+
+				if (errors.hasErrors()) {
 					forwardOrRedirect = true;
 					targetView = Views.CLIENTE_INSERT;
 					
-				}
-				
-				
-				cliente.setNombre(nombre);
-				cliente.setApellido1(apellido1);
-				cliente.setApellido2(apellido2);
-				cliente.setDni(dni);
-				cliente.setCorreo(correo);
-				cliente.setTelefono(telefono);
-				cliente.setCp(cp);
-				
-				
-				Long id = clienteService.registrar(cliente);
+				} else {
+
+					cliente.setNombre(nombre);
+					cliente.setApellido1(apellido1);
+					cliente.setApellido2(apellido2);
+					cliente.setDni(dni);
+					cliente.setCorreo(correo);
+					cliente.setTelefono(telefono);
+					cliente.setCp(cp);
+
+
+					Long id = clienteService.registrar(cliente);
 					
-				targetView = Views.CLIENTE_INSERT;
-				forwardOrRedirect = true;
-	
-				
+					targetView = Views.CLIENTE_INSERT;
+					forwardOrRedirect = true;
+				}
 			} catch (PinguelaException pe) {
 				logger.error(pe.getMessage(), pe);
+				errors.addGlobal(ErrorCodes.INCORRECT_FIELD);
+		        forwardOrRedirect = true;
+		        targetView = Views.CLIENTE_INSERT;
 			}
 			
 		}

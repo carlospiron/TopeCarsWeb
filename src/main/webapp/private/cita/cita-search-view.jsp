@@ -26,13 +26,13 @@
             <input type="hidden" name="action" value="search"/>
 
             <label><fmt:message key="matricula" bundle="${messages}"/></label>
-            <input type="text" name="matricula" class="input-field"/><br>
+            <input type="text" name="matricula"/><br>
 
             <label><fmt:message key="fecha_desde" bundle="${messages}"/></label>
-            <input type="text" placeholder="yyyy/MM/dd" name="fechaDesde" class="input-field" value="<%= fechaIni %>"/><br>
+            <input type="text" placeholder="yyyy/MM/dd" name="fechaDesde" value="<%= fechaIni %>"/><br>
 
             <label><fmt:message key="fecha_hasta" bundle="${messages}"/></label>
-            <input type="text" placeholder="yyyy/MM/dd" name="fechaHasta" class="input-field" value="<%= fechaFin %>"/><br>
+            <input type="text" placeholder="yyyy/MM/dd" name="fechaHasta" value="<%= fechaFin %>"/><br>
 
             <input type="submit" value="<fmt:message key='buscar' bundle='${messages}'/>" class="submit-button"/>
         </form>
@@ -43,9 +43,11 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Matrícula</th>
                     <th>Fecha</th>
                     <th>Motivo</th>
+                    <th>Correo</th>
+                    <th>Matrícula</th>
+                    
                     <th>Teléfono</th>
                     <th>Acciones</th>
                 </tr>

@@ -3,6 +3,10 @@
 
 <%@include file="/common/header.jsp"%>
    <%@include file="/common/menu.jsp"%>
+   
+   <c:forEach var="error" items="${errors.globalErrors}">
+			<li><fmt:message key="${error}" bundle="${messages}" /></li>
+	</c:forEach>
 
 <fmt:setLocale value="${pageContext.request.locale}" />
 
@@ -12,9 +16,12 @@
     </h3>
     
     <input type="hidden" name="action" value="register" />
-
-    <label><fmt:message key="nombre" bundle="${messages}" /></label> 
-    <input type="text" name="nombre" required />
+	
+    <label><fmt:message key="nombre" bundle="${messages}" /></label>
+	<c:forEach var="errorCode" items="${errors.getFieldErrors('nombre')}">
+			<li><fmt:message key="${errorCode}" bundle="${messages}" /></li>
+	</c:forEach>       
+    <input type="text" name="nombre" required value="${param.nombre}">
 
     <label><fmt:message key="primer_apellido" bundle="${messages}" /></label> 
     <input type="text" name="apellido1" placeholder="Ejemplo: Pérez" required />
@@ -22,17 +29,22 @@
     <label><fmt:message key="segundo_apellido" bundle="${messages}" /></label> 
     <input type="text" name="apellido2" />
 
+<BR/>
     <label><fmt:message key="dni" bundle="${messages}" /></label>
-    <input type="text" name="dni" placeholder="Ejemplo: 12345678-A" required />
+	<c:forEach var="errorCode" items="${errors.getFieldErrors(Parameters.DNI)}">
+			<li><fmt:message key="${errorCode}" bundle="${messages}" /></li>
+	</c:forEach>           
+    <input type="text" name="dni" value="${param.dni}" placeholder="Ejemplo: 12345678-A" required />
+<BR/>
 
     <label><fmt:message key="correo" bundle="${messages}" /></label> 
     <input type="email" name="email" placeholder="Ejemplo: juan@example.com" required />
 
     <label><fmt:message key="telefono" bundle="${messages}" /></label>
-    <input type="number" name="telefono" required />
+    <input type="text" name="telefono" required />
     
     <label><fmt:message key="codigo_postal" bundle="${messages}" /></label>
-    <input type="number" name="cp" required />
+    <input type="text" name="cp" required />
 
     <input type="submit" value="<fmt:message key="aceptar" bundle="${messages}" />"/>
 </form>
