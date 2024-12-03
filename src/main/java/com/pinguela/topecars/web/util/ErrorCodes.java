@@ -14,6 +14,7 @@ public class ErrorCodes {
 		public static final String INVALID_CP = "INVALID_CP"; 
 		public static final String INVALID_NAME = "INVALID_NAME";
 		public static final String INVALID_LAST_NAME = "INVALID_LAST_NAME";
+		public static final String INVALID_TUITION = "INVALID_TUITION";
 		
 		public static final String UNKNOWN_ROLE = "UNKNOWN_ROLE";
 		public static final String INCORRECT_FIELD = "INCORRECT_FIELD";

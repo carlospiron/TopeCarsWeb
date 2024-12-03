@@ -1,6 +1,4 @@
-
-
-    <%@ page import="com.pinguela.topecars.web.util.*"%>
+<%@ page import="com.pinguela.topecars.web.util.*"%>
 
 <%@include file="/common/header.jsp"%>
    <%@include file="/common/menu.jsp"%>
@@ -11,14 +9,11 @@
 			
 	<input type="hidden" name="action" value="search"/>
 	
-	<label><fmt:message key="matricula" bundle="${messages}"/></label>
-	<input type="number" name="matricula" /> 
-	
 	<label><fmt:message key="fecha_desde" bundle="${messages}"/></label> 
-	<input type="text" name="fecha_desde" />
+	<input type="date" name="<%=Parameters.FECHA_DESDE %>" />
 	
 	<label><fmt:message key="fecha_hasta" bundle="${messages}"/></label> 
-	<input type="text" name="fecha_hasta" />
+	<input type="date" name="<%=Parameters.FECHA_HASTA %>" />
 	
 	<input type="submit" value="<fmt:message key="buscar" bundle="${messages}"/>"/>
 </form>
@@ -29,10 +24,10 @@
 		<c:when test="${not empty resultados.page}">
 			<h3><fmt:message key="resultados" bundle="${messages}"/></h3>
 			<ul>
-				<c:forEach var="cliente" items="${resultados.page}">
+				<c:forEach var="cita" items="${resultados.page}">
 					<li>
-						<a href="<%=request.getContextPath()%>/private/CitaServlet?action=detail&fecha=${cita.fechaDesde}">
-							<c:out value="${cita.fechaHasta}" />
+						<a href="<%=request.getContextPath()%>/private/CitaServlet?action=detail&id=${cita.idCita}">
+							<c:out value="${cita.motivo}" />
 						</a>
 					</li>
 				</c:forEach>

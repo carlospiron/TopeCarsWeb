@@ -1,9 +1,16 @@
 package com.pinguela.topecars.web.util;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Validator {
 	
-
+	//matricula patrones
+	private static final String CONSONANTES = "BCDFGHIJKLMNPQRSTUVWXYZ";
+    private static final Pattern PATTERN_ES = Pattern.compile("([" + CONSONANTES + "]{1,2})(\\d{4})([" + CONSONANTES + "]{0,2})");
+    private static final Pattern PATTERN_EU = Pattern.compile("(\\d{4})([" + CONSONANTES + "]{3})");
+    
+    
 	public static boolean esCorreoValido(String correo) {
 	    if (correo == null) {
 	        return false;
@@ -45,7 +52,21 @@ public class Validator {
     }
     
     
-    
+
+    public static boolean checkMatricula(String matricula){
+            matricula = matricula.toUpperCase(); 
+            Matcher eu = PATTERN_EU.matcher(matricula);
+            if(eu.groupCount()>1){
+                 return true;
+            }else {
+                Matcher es = PATTERN_ES.matcher(matricula);
+                if(es.groupCount()>1){
+                    return true;
+                }else {
+                    return false;
+                }
+           }
+    }
     
     
 	

@@ -40,6 +40,16 @@
                 <li><a href="<%=request.getContextPath()%><%=Views.REPARACION_SEARCH%>">
                 			<fmt:message key="buscar_reparaciones" bundle="${messages}"/></a></li>
                 			
+                <li><a href="<%=request.getContextPath()%><%=Views.REPARACION_INSERT%>">
+                			<fmt:message key="nueva_reparacion" bundle="${messages}"/></a></li>
+                			
+            </ul>
+        </li>
+        <li><a href="#"><fmt:message key="vehiculos" bundle="${messages}"/></a>
+            <ul>
+                <li><a href="<%=request.getContextPath()%><%=Views.VEHICULO_SEARCH%>">
+                			<fmt:message key="buscar_vehiculos" bundle="${messages}"/></a></li>
+           
             </ul>
         </li>
        

@@ -26,9 +26,15 @@ public class Parameters {
 	
 	public static final String MATRICULA = "matricula";
 	
+	public static final String NUMERO_BASTIDOR = "numeroBastidor";
+	
+	public static final String FECHA = "fecha";
+	
 	public static final String FECHA_DESDE = "fechaDesde";
 	
 	public static final String FECHA_HASTA = "fechaHasta";
+	
+	public static final String MOTIVO = "motivo";
 	
 	public static final String REMEMBER_USER = "remember-user";
 	

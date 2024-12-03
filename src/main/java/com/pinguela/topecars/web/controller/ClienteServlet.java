@@ -70,7 +70,7 @@ public class ClienteServlet extends HttpServlet {
 				String newPageStr = request.getParameter(Parameters.PAGE);
 				int newPage = Strings.isEmpty(newPageStr)?1:Integer.valueOf(newPageStr);
 				
-				Results<ClienteDTO> resultados = clienteService.findByCriteria(criteria, (newPage-1)*PAGE_SIZE+1, PAGE_SIZE );			
+				Results<ClienteDTO> resultados = clienteService.findByCriteria(criteria, (newPage-1)*PAGE_SIZE+1, PAGE_SIZE);			
 				logger.info("Encontrados "+resultados.getTotal()+" clientes");
 				
 				request.setAttribute(Attributes.RESULTADOS, resultados);

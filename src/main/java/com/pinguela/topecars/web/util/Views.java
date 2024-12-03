@@ -23,5 +23,9 @@ public class Views {
 	//reparacion
 	public static final String 	REPARACION_SEARCH = "/private/reparacion/reparacion-search-view.jsp";
 	public static final String 	REPARACION_DETAIL = "/private/reparacion/reparacion-detail-view.jsp";
+	public static final String 	REPARACION_INSERT = "/private/reparacion/reparacion-insert-view.jsp";
+	
+	//vehiculos
+	public static final String VEHICULO_SEARCH = "/private/vehiculo/vehiculo-search-view.jsp";
 	
 }
