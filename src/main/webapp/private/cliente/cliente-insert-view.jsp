@@ -16,18 +16,27 @@
     </h3>
     
     <input type="hidden" name="action" value="register" />
-	
+    
+<BR/>	
     <label><fmt:message key="nombre" bundle="${messages}" /></label>
-	<c:forEach var="errorCode" items="${errors.getFieldErrors('nombre')}">
+	<c:forEach var="errorCode" items="${errors.getFieldErrors(Parameters.NOMBRE)}">
 			<li><fmt:message key="${errorCode}" bundle="${messages}" /></li>
 	</c:forEach>       
-    <input type="text" name="nombre" required value="${param.nombre}">
+    <input type="text" name="nombre" value="${param.nombre}" required>
 
+<BR/>
     <label><fmt:message key="primer_apellido" bundle="${messages}" /></label> 
-    <input type="text" name="apellido1" placeholder="Ejemplo: Pérez" required />
-
-    <label><fmt:message key="segundo_apellido" bundle="${messages}" /></label> 
-    <input type="text" name="apellido2" />
+    <c:forEach var="errorCode" items="${errors.getFieldErrors(Parameters.APELLIDO1)}">
+			<li><fmt:message key="${errorCode}" bundle="${messages}" /></li>
+	</c:forEach> 
+    <input type="text" name="apellido1" value="${param.apellido1}" placeholder="Ejemplo: Pérez" required />
+    
+<BR/>
+    <label><fmt:message key="segundo_apellido" bundle="${messages}" /></label>
+    <c:forEach var="errorCode" items="${errors.getFieldErrors(Parameters.APELLIDO2)}">
+			<li><fmt:message key="${errorCode}" bundle="${messages}" /></li>
+	</c:forEach> 
+    <input type="text" name="apellido2" value="${param.apellido2}"  placeholder="Ejemplo: Pérez" required/>
 
 <BR/>
     <label><fmt:message key="dni" bundle="${messages}" /></label>
@@ -38,13 +47,22 @@
 <BR/>
 
     <label><fmt:message key="correo" bundle="${messages}" /></label> 
-    <input type="email" name="email" placeholder="Ejemplo: juan@example.com" required />
+    <c:forEach var="errorCode" items="${errors.getFieldErrors(Parameters.EMAIL)}">
+			<li><fmt:message key="${errorCode}" bundle="${messages}" /></li>
+	</c:forEach> 
+    <input type="email" name="email" value="${param.email}" placeholder="Ejemplo: juan@example.com" required />
+<BR/>
 
     <label><fmt:message key="telefono" bundle="${messages}" /></label>
-    <input type="text" name="telefono" required />
+    <input type="text" name="telefono" value="${param.telefono}" required />
+ <BR/>
     
     <label><fmt:message key="codigo_postal" bundle="${messages}" /></label>
-    <input type="text" name="cp" required />
+    <c:forEach var="errorCode" items="${errors.getFieldErrors(Parameters.CP)}">
+			<li><fmt:message key="${errorCode}" bundle="${messages}" /></li>
+	</c:forEach>
+    <input type="text" name="cp" value="${param.cp}" required />
+<BR/>
 
     <input type="submit" value="<fmt:message key="aceptar" bundle="${messages}" />"/>
 </form>

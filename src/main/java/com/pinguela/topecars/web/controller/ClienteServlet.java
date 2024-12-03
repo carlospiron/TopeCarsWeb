@@ -148,13 +148,13 @@ public class ClienteServlet extends HttpServlet {
 				}
 				
 				if (!Validator.esEntradaValida(apellido1)) {
-					errors.addFieldError(Parameters.APELLIDO1, ErrorCodes.LAST_NAME);
+					errors.addFieldError(Parameters.APELLIDO1, ErrorCodes.INVALID_LAST_NAME);
 					forwardOrRedirect = true;
 					targetView = Views.CLIENTE_INSERT;
 				}
 				
 				if (!Validator.esEntradaValida(apellido2)) {
-					errors.addFieldError(Parameters.APELLIDO2, ErrorCodes.LAST_NAME);
+					errors.addFieldError(Parameters.APELLIDO2, ErrorCodes.INVALID_LAST_NAME);
 					forwardOrRedirect = true;
 					targetView = Views.CLIENTE_INSERT;
 				}
@@ -194,7 +194,7 @@ public class ClienteServlet extends HttpServlet {
 
 					Long id = clienteService.registrar(cliente);
 					
-					targetView = Views.CLIENTE_INSERT;
+					targetView = Views.CLIENTE_SEARCH;
 					forwardOrRedirect = true;
 				}
 			} catch (PinguelaException pe) {
