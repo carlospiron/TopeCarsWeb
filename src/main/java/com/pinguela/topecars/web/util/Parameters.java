@@ -12,6 +12,10 @@ public class Parameters {
 	
 	public static final String ID_ROL = "idRol";
 	
+	public static final String ID_ESTADO_REPARACION = "idEstadoReparacion";
+	
+	public static final String ID_EMPLEADO = "idEmpleado";
+	
 	public static final String NOMBRE = "nombre";
 	
 	public static final String APELLIDO1 = "apellido1";
@@ -34,7 +38,15 @@ public class Parameters {
 	
 	public static final String FECHA_HASTA = "fechaHasta";
 	
+	public static final String FECHA_INICIO = "fechaInicio";
+	
+	public static final String FECHA_FIN = "fechaFin";
+	
 	public static final String MOTIVO = "motivo";
+	
+	public static final String ORDEN_DE_TRABAJO = "ordenDeTrabajo";
+	
+	public static final String DESCRIPCION = "descripcion";
 	
 	public static final String REMEMBER_USER = "remember-user";
 	

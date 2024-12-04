@@ -78,14 +78,14 @@ public class CitaServlet extends HttpServlet {
 			try {
 
 			    if (fechaDesdeStr == null || fechaDesdeStr.isEmpty()) {
-			        fechaDesde = null;
+			       cita.setFechaDesde(null);
 			    } else {
 			    	fechaDesde = FECHA.parse(fechaDesdeStr);
 			    	cita.setFechaDesde(fechaDesde);
 			    }
 
 			    if (fechaHastaStr == null || fechaHastaStr.isEmpty()) {
-			        fechaHasta = null;
+			        cita.setFechaHasta(null);
 			    } else {
 			    	fechaHasta = FECHA.parse(fechaHastaStr);
 			    	cita.setFechaHasta(fechaHasta);

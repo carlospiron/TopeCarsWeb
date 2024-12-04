@@ -8,6 +8,8 @@ public class Attributes {
 	
 	public static final String CITA = "cita";
 	
+	public static final String REPARACION = "reparacion";
+	
 	public static final String EMPLEADO_AUTENTICADO = "empleadoAutenticado";
 	
 	public static final String RESULTADOS = "resultados";
