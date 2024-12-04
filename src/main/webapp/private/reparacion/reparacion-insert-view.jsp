@@ -3,6 +3,7 @@
 
 <%@include file="/common/header.jsp"%>
    <%@include file="/common/menu.jsp"%>
+   <%@include file="/common/load-maestra.jsp"%>
    
  	<c:forEach var="error" items="${errors.globalErrors}">
 			<li><fmt:message key="${error}" bundle="${messages}" /></li>
@@ -39,10 +40,10 @@
 <BR/>
     <label><fmt:message key="id_estado_reparacion" bundle="${messages}" /></label> 
     <select class="input-field" name="${Parameters.ID_ESTADO_REPARACION}">
-				<option value="">Seleccionar..</option>
-				<c:forEach var="estados" items="${idEstadoRreparacion}">
+				<option value="">Seleccionar</option>
+				<c:forEach var="estados" items="${estadoReparacion}">
 					<option value="${estados.idEstadoReparacion}" 
-					<c:if test="${param.idEstadoReparacion == estados.idEstadoReparacion && param.idEstadoReparacion != null}">selected</c:if>>${estados.idEstadoReparacion}</option>
+					<c:if test="${param.idEstadoReparacion == estados.idEstadoReparacion && param.idEstadoReparacion != null}">selected</c:if>>${estados.nombre}</option>
 				</c:forEach>
 			</select>
 

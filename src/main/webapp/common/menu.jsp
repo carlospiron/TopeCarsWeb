@@ -45,13 +45,6 @@
                 			
             </ul>
         </li>
-        <li><a href="#"><fmt:message key="vehiculos" bundle="${messages}"/></a>
-            <ul>
-                <li><a href="<%=request.getContextPath()%><%=Views.VEHICULO_SEARCH%>">
-                			<fmt:message key="buscar_vehiculos" bundle="${messages}"/></a></li>
-           
-            </ul>
-        </li>
        
     </ul>
 </nav>

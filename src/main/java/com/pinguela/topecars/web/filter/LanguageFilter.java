@@ -33,7 +33,7 @@ public class LanguageFilter extends HttpFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 
-		 String localeFromCookie = CookieManager.getValue(httpRequest, "locale"); //idioma de la cookie
+		 String localeFromCookie = CookieManager.getValue(httpRequest, "locale");
 	        Locale locale = null;
 	        if (localeFromCookie != null) {
 	            locale = Locale.forLanguageTag(localeFromCookie);
@@ -44,7 +44,6 @@ public class LanguageFilter extends HttpFilter implements Filter {
 	        }
 
 	        if (locale == null) {
-	            // Tentar obter o idioma do cabeçalho
 	            String[] languages = httpRequest.getHeader("Accept-Language").split(",");
 	            if (languages.length > 0) {
 	                locale = Locale.forLanguageTag(languages[0]);

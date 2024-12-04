@@ -47,7 +47,6 @@ public class ReparacionServlet extends HttpServlet {
     public ReparacionServlet() {
         super();
         reparacionService = new ReparacionServiceImpl();
-        
     }
 
 	
